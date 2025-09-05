@@ -266,6 +266,25 @@ void HypotheticalMachineSimulator::loadProgram(string programFile)
  *   address.
  */
 // your implementation of translateAddress() should go here
+int HypotheticalMachineSimulator::translateAddress(int virtualAddress) const
+{
+  // Check lower bound
+  if (virtualAddress < memoryBaseAddress)
+  {
+    throw SimulatorException(
+      "Error: memory address " + std::to_string(virtualAddress) + " is below base address " + std::to_string(memoryBaseAddress));
+  }
+
+  // Check upper bound (bounds address is inclusive)
+  if (virtualAddress > memoryBoundsAddress)
+  {
+    throw SimulatorException(
+      "Error: memory address " + std::to_string(virtualAddress) + " exceeds memory bounds " + std::to_string(memoryBoundsAddress));
+  }
+
+  // Translate to real memory index
+  return virtualAddress - memoryBaseAddress;
+}
 
 /**
  * @brief poke memory

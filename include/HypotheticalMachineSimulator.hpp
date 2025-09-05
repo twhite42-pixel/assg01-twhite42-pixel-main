@@ -84,6 +84,7 @@ public:
   // program loading and initializtion
   void loadProgram(string simulationFile);
   void initializeMemory(int InitBaseaddress, int boundAddress);
+  int translateAddress(int virtualAddress) const;
   // program execution, declare fetch and execute member functions here
   int runSimulation(int maxCycles = 100, bool verbose = false);
 
