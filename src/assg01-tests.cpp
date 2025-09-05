@@ -22,8 +22,8 @@ using namespace std;
 // once defined they will enable the tests declared below for each task
 #define task1
 #define task2
-#undef task3_1
-#undef task3_2
+#define task3_1
+#define task3_2
 #undef task4
 #undef task5
 #undef task6_1 // executeLoad()

@@ -300,6 +300,12 @@ int HypotheticalMachineSimulator::translateAddress(int virtualAddress) const
  *   address.
  */
 // your implementation of pokeAddress() should go here
+void HypotheticalMachineSimulator::pokeAddress(int address, int value)
+{
+  int realAddress = translateAddress(address); // use Task 2
+  memory[realAddress] = value;                 // write into memory
+}
+
 
 /**
  * @brief peek memory
@@ -316,7 +322,11 @@ int HypotheticalMachineSimulator::translateAddress(int virtualAddress) const
  *   memory address we are reading from and returning.
  */
 // your implementation of peekAddress() should go here
-
+int HypotheticalMachineSimulator::peekAddress(int address) const
+{
+  int realAddress = translateAddress(address); // use Task 2
+  return memory[realAddress];                  // read from memory
+}
 /**
  * @brief fetch phase
  *

@@ -78,6 +78,11 @@ public:
   // constructors and destructors
   HypotheticalMachineSimulator();
   ~HypotheticalMachineSimulator();
+  // Write a value into simulated memory
+  void pokeAddress(int address, int value);
+
+  // Read a value from simulated memory
+  int peekAddress(int address) const;
 
   void reset();
 
